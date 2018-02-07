@@ -1,3 +1,5 @@
+// WORK IN PROGRESS
+
 module.exports = {
 	name: 'kick',
 	description: 'Permet de renvoyer un membre du serveur',

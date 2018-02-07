@@ -1,3 +1,5 @@
+// WORK IN PROGRESS
+
 module.exports = {
 	name: 'role',
 	description: 'Assigne un role à un membre du serveur.',

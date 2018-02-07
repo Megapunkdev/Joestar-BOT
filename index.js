@@ -7,16 +7,19 @@ client.commands = new Discord.Collection();
 
 const commandFiles = fs.readdirSync('./commands');
 
+// loop through all the command files and map the name and data of each commands 
 for (const file of commandFiles) {
 	const command = require(`./commands/${file}`);
 	client.commands.set(command.name, command);
 }
 
+// ready callback to make sure the bot is working
 client.on('ready', () => {
 	console.log('Prêt !');
 	client.user.setActivity('the World burn', { type: 'WATCHING' });
 });
 
+// commands callback and security check
 client.on('message', message => {
 	if (!message.content.startsWith(prefix) || message.author.bot) return;
 
@@ -40,7 +43,7 @@ client.on('message', message => {
 			reply += `\nL'utilisation adequate de cette commande est la suivante: \`${prefix}${command.name} ${command.usage}\``;
 		}
 
-		return message.channel.send(reply);
+		return message.replay(reply);
 	}
 
 	try {
